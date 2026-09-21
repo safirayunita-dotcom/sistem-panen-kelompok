@@ -1,0 +1,36 @@
+# =====================================================================
+# MODUL INTEGRASI LAPORAN HASIL PANEN (AGROINDUSTRI)
+# =====================================================================
+
+def cetak_laporan_panen(komoditas, jumlah_karung, berat_per_karung, harga_per_kg=10000):
+    """
+    Fungsi untuk menerima input variabel dari modul input_panen.py,
+    menghitung kalkulasi total berat & estimasi pendapatan, 
+    lalu mencetak laporan resmi.
+    """
+    # Kalkulasi Matematika
+    total_berat_kg = jumlah_karung * berat_per_karung
+    total_pendapatan = total_berat_kg * harga_per_kg
+    
+    # Tampilan Laporan Output
+    print("\n" + "=" * 45)
+    print("       LAPORAN RESMI HASIL PANEN DIGITAL      ")
+    print("=" * 45)
+    print(f"• Jenis Komoditas     : {komoditas.capitalize()}")
+    print(f"• Kuantitas Fisik     : {jumlah_karung} Karung")
+    print(f"• Berat per Karung    : {berat_per_karung} kg")
+    print("-" * 45)
+    print(f"• TOTAL BERAT PANEN   : {total_berat_kg:,.1f} kg")
+    print(f"• Est. Nilai Jual/kg  : Rp {harga_per_kg:,.0f}")
+    print(f"• TOTAL PENDAPATAN    : Rp {total_pendapatan:,.0f}")
+    print("=" * 45 + "\n")
+
+# --- SIMULASI PENGUJIAN MANDIRI DENGAN DATA TEMANMU ---
+if __name__ == "__main__":
+    # Sampel uji coba mengacu pada contoh data jagung dari temanmu:
+    # komoditas = "jagung", jumlah_karung = 5, berat_per_karung = 87.0
+    cetak_laporan_panen(
+        komoditas="jagung", 
+        jumlah_karung=5, 
+        berat_per_karung=87.0
+    )
